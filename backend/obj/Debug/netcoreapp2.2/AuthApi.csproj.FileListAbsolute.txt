@@ -1,0 +1,14 @@
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\bin\Debug\netcoreapp2.2\AuthApi.deps.json
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\bin\Debug\netcoreapp2.2\AuthApi.runtimeconfig.json
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\bin\Debug\netcoreapp2.2\AuthApi.runtimeconfig.dev.json
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\bin\Debug\netcoreapp2.2\AuthApi.dll
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\bin\Debug\netcoreapp2.2\AuthApi.pdb
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.csprojAssemblyReference.cache
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.csproj.CoreCompileInputs.cache
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.RazorAssemblyInfo.cache
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.RazorAssemblyInfo.cs
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.AssemblyInfoInputs.cache
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.AssemblyInfo.cs
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.RazorTargetAssemblyInfo.cache
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.dll
+C:\Users\kenne\Documents\programs\ClaudeTest\backend\obj\Debug\netcoreapp2.2\AuthApi.pdb

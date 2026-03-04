@@ -1,0 +1,103 @@
+<!-- signup.html — Template for the Sign Up page -->
+
+<div class="signup-container">
+  <mat-card class="signup-card">
+
+    <mat-card-header>
+      <mat-card-title>Create Account</mat-card-title>
+      <mat-card-subtitle>Fill in the details below to register</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- [formGroup] binds this form to the signupForm object in signup.ts -->
+      <form [formGroup]="signupForm">
+
+        <!-- ── Username field ──────────────────────────────────────────────── -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" autocomplete="username" />
+          <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- ── Password field ─────────────────────────────────────────────── -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <!-- [type] switches between 'password' (dots) and 'text' -->
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            autocomplete="new-password"
+          />
+          <!-- Eye icon button to show/hide the password -->
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword = !hidePassword"
+          >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <!-- Note: complexity errors are shown in a <p> below, not here,
+               because mat-error only appears after the field is touched,
+               but we want finer control over when the message appears. -->
+        </mat-form-field>
+
+        <!-- Complexity error: shown only after the user has started typing
+             (passwordInvalid getter checks the 'dirty' flag in signup.ts) -->
+        <p class="validation-error" *ngIf="passwordInvalid">
+          Password needs 8 characters, at least 1 number and 1 special character.
+        </p>
+
+        <!-- ── Confirm password field ─────────────────────────────────────── -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            [type]="hideConfirm ? 'password' : 'text'"
+            formControlName="confirmPassword"
+            autocomplete="new-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hideConfirm = !hideConfirm"
+          >
+            <mat-icon>{{ hideConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!-- Mismatch error: shown only after the confirm field has been edited
+             (passwordsMismatch getter checks 'dirty' in signup.ts) -->
+        <p class="validation-error" *ngIf="passwordsMismatch">
+          Passwords are not the same.
+        </p>
+
+        <!-- Server-side error from a failed register API call -->
+        <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions class="button-row">
+      <!-- Disabled when the form has any validation error OR while loading -->
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="signupForm.invalid || loading"
+        (click)="onSignUp()"
+      >
+        <span *ngIf="!loading">Sign Up</span>
+        <span *ngIf="loading">Registering...</span>
+      </button>
+
+      <button mat-stroked-button (click)="onBackToLogin()">
+        Back to Login
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

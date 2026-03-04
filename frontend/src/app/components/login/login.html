@@ -1,0 +1,84 @@
+<!-- login.html — Template for the Login page -->
+
+<!-- Outer wrapper centers the card vertically and horizontally (see login.scss) -->
+<div class="login-container">
+
+  <!-- mat-card is an Angular Material card panel with a shadow border -->
+  <mat-card class="login-card">
+
+    <!-- Header section: title and subtitle text -->
+    <mat-card-header>
+      <mat-card-title>Welcome Back</mat-card-title>
+      <mat-card-subtitle>Sign in to your account</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- [formGroup] binds this <form> to the loginForm object in login.ts -->
+      <form [formGroup]="loginForm">
+
+        <!-- mat-form-field is a Material wrapper that adds a floating label,
+             underline, and error area to the input inside it -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <!-- formControlName links this input to the 'username' form control -->
+          <input matInput formControlName="username" autocomplete="username" />
+          <!-- mat-error is only shown when the control is invalid and touched -->
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <!-- [type] switches between 'password' (dots) and 'text' based on hidePassword -->
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            autocomplete="current-password"
+          />
+          <!-- matSuffix places this button inside the field on the right side -->
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Toggle password visibility'"
+          >
+            <!-- Shows an eye or crossed-eye icon depending on visibility state -->
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- *ngIf only renders this paragraph when errorMessage is non-empty -->
+        <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      </form>
+    </mat-card-content>
+
+    <!-- mat-card-actions is the footer area for buttons -->
+    <mat-card-actions class="button-row">
+      <!-- mat-raised-button is a filled/elevated Material button (primary = blue) -->
+      <!-- [disabled] disables the button while loading or if the form has errors -->
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="loginForm.invalid || loading"
+        (click)="onSignIn()"
+      >
+        <!-- Show different text while the HTTP call is in flight -->
+        <span *ngIf="!loading">Sign In</span>
+        <span *ngIf="loading">Signing in...</span>
+      </button>
+
+      <!-- mat-stroked-button is an outlined (hollow) Material button -->
+      <button mat-stroked-button (click)="onSignUp()">
+        Sign Up
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

@@ -1,0 +1,35 @@
+<!-- dashboard.html — Template for the Dashboard page -->
+
+<div class="dashboard-container">
+
+  <!-- mat-toolbar is a Material top bar. color="primary" gives it the blue theme color. -->
+  <mat-toolbar color="primary">
+    <span>My App</span>
+
+    <!-- .spacer (flex: 1) pushes everything after it to the right -->
+    <span class="spacer"></span>
+
+    <!-- Show the logged-in username in the toolbar -->
+    <span class="username">{{ username }}</span>
+
+    <!-- Logout button: mat-icon-button is a round icon-only button -->
+    <button mat-icon-button (click)="logout()" title="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!-- Page body content area -->
+  <div class="dashboard-content">
+    <mat-card class="welcome-card">
+      <mat-card-header>
+        <!-- {{ username }} is interpolation — Angular inserts the value here -->
+        <mat-card-title>Welcome, {{ username }}!</mat-card-title>
+        <mat-card-subtitle>You are successfully logged in.</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>This is your dashboard. More features coming soon.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

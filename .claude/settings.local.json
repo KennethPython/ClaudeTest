@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ng generate service services/auth --skip-tests)",
+      "Bash(ng generate guard guards/auth --skip-tests --implements=CanActivate)",
+      "Bash(dotnet new webapi -o backend -n AuthApi --no-restore)",
+      "Bash(ng build --configuration=development)",
+      "Bash(npm install @angular/animations)",
+      "Bash(dotnet restore)",
+      "Bash(dotnet build)"
+    ]
+  }
+}
